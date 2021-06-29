@@ -96,28 +96,28 @@ public class ManageProduct extends JFrame implements ActionListener{
 	
         btn_add.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_add.setText("Add");
-        btn_add.setBounds(120, 200, 90, 24);
+        btn_add.setBounds(160, 200, 90, 24);
         this.getContentPane().add(btn_add);
         btn_add.addActionListener(this);
         
         btn_edit.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_edit.setText("Edit");
-        btn_edit.setBounds(220, 200, 90, 24);
+        btn_edit.setBounds(280, 200, 90, 24);
         this.getContentPane().add(btn_edit);
         btn_edit.addActionListener(this);
         
         btn_delete.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_delete.setText("Delete");
-        btn_delete.setBounds(320, 200, 90, 24);
+        btn_delete.setBounds(400, 200, 90, 24);
         this.getContentPane().add(btn_delete);
         btn_delete.addActionListener(this);
 	
         btn_clear.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_clear.setText("Clear");
-        btn_clear.setBounds(420, 200, 90, 24);
+        btn_clear.setBounds(520, 200, 90, 24);
         this.getContentPane().add(btn_clear);
         btn_clear.addActionListener(this);
-	
+	    
         btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_logout.setText("Logout");
         btn_logout.setBounds(670, 20, 90, 24);
