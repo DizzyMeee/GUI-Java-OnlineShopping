@@ -78,7 +78,7 @@ public class Olshop extends JFrame implements ActionListener{
 
         txt_productName.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_productName.setText("");
-        txt_productName.setBounds(170, 80, 200, 22);
+        txt_productName.setBounds(170, 80, 200, 28);
         this.getContentPane().add(txt_productName);
         
         lbl_quantity.setFont(new Font("georgia", Font.BOLD,14));
@@ -88,7 +88,7 @@ public class Olshop extends JFrame implements ActionListener{
         
         txt_quantity.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_quantity.setText("");
-        txt_quantity.setBounds(170, 120, 200, 22);
+        txt_quantity.setBounds(170, 120, 200, 28);
         this.getContentPane().add(txt_quantity);
         
         btn_buy.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
@@ -111,7 +111,7 @@ public class Olshop extends JFrame implements ActionListener{
         txt_stock.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_stock.setText("");
         txt_stock.setEditable(false);
-        txt_stock.setBounds(490, 80, 200, 22);
+        txt_stock.setBounds(490, 80, 200, 28);
         this.getContentPane().add(txt_stock);
         
         btn_filter.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
@@ -157,7 +157,7 @@ public class Olshop extends JFrame implements ActionListener{
         txt_rp.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_rp.setText("");
         txt_rp.setEditable(false);
-        txt_rp.setBounds(530, 250, 220, 22);
+        txt_rp.setBounds(500, 250, 220, 28);
         this.getContentPane().add(txt_rp);
 		
         lbl_searchh.setFont(new Font("georgia", Font.BOLD,14));
@@ -173,7 +173,7 @@ public class Olshop extends JFrame implements ActionListener{
         
         txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_search.setText("");
-        txt_search.setBounds(170, 290, 200, 22);
+        txt_search.setBounds(170, 290, 200, 28);
         this.getContentPane().add(txt_search);
         
         btn_search.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
