@@ -78,7 +78,7 @@ public class Olshop extends JFrame implements ActionListener{
 
         txt_productName.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_productName.setText("");
-        txt_productName.setBounds(170, 80, 200, 28);
+        txt_productName.setBounds(150, 80, 200, 28);
         this.getContentPane().add(txt_productName);
         
         lbl_quantity.setFont(new Font("georgia", Font.BOLD,14));
@@ -93,13 +93,13 @@ public class Olshop extends JFrame implements ActionListener{
         
         btn_buy.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_buy.setText("Buy");
-        btn_buy.setBounds(170, 160, 90, 24);
+        btn_buy.setBounds(150, 160, 90, 24);
         this.getContentPane().add(btn_buy);
         btn_buy.addActionListener(this);
         
         btn_refresh.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_refresh.setText("Refresh");
-        btn_refresh.setBounds(270, 160, 90, 24);
+        btn_refresh.setBounds(250, 160, 90, 24);
         this.getContentPane().add(btn_refresh);
         btn_refresh.addActionListener(this);
         
@@ -173,12 +173,12 @@ public class Olshop extends JFrame implements ActionListener{
         
         txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_search.setText("");
-        txt_search.setBounds(170, 290, 200, 28);
+        txt_search.setBounds(96, 290, 200, 28);
         this.getContentPane().add(txt_search);
         
         btn_search.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_search.setText("Search");
-        btn_search.setBounds(400, 290, 90, 24);
+        btn_search.setBounds(300, 290, 90, 24);
         this.getContentPane().add(btn_search);
         btn_search.addActionListener(this);
         
