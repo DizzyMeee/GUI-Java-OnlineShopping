@@ -154,6 +154,12 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         txt_search.setText("");
         txt_search.setBounds(170, 290, 200, 22);
         this.getContentPane().add(txt_search);
+		
+	btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
+        btn_logout.setText("Logout");
+        btn_logout.setBounds(670, 20, 90, 24);
+        this.getContentPane().add(btn_logout);
+        btn_logout.addActionListener(this);
         
         String [] kolom = {"Product Name", "Category", "Stock", "Price"};
 
