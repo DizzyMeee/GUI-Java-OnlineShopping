@@ -60,7 +60,7 @@ public class ManageProduct extends JFrame implements ActionListener{
 
         txt_productName.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_productName.setText("");
-        txt_productName.setBounds(170, 80, 200, 22);
+        txt_productName.setBounds(170, 80, 200, 28);
         this.getContentPane().add(txt_productName);
         
         lbl_category.setFont(new Font("Optima", Font.BOLD,14));
@@ -81,7 +81,7 @@ public class ManageProduct extends JFrame implements ActionListener{
 
         txt_stock.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_stock.setText("");
-        txt_stock.setBounds(470, 80, 200, 24);
+        txt_stock.setBounds(470, 80, 200, 28);
         this.getContentPane().add(txt_stock);
 	
         lbl_price.setFont(new Font("georgia", Font.BOLD,14));
@@ -91,7 +91,7 @@ public class ManageProduct extends JFrame implements ActionListener{
 
         txt_price.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_price.setText("");
-        txt_price.setBounds(470, 120, 200, 24);
+        txt_price.setBounds(470, 120, 200, 28);
         this.getContentPane().add(txt_price);
 	
         btn_add.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
@@ -131,7 +131,7 @@ public class ManageProduct extends JFrame implements ActionListener{
 
         txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_search.setText("");
-        txt_search.setBounds(170, 260, 200, 22);
+        txt_search.setBounds(170, 260, 200, 28);
         this.getContentPane().add(txt_search);
         
         btn_search.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
