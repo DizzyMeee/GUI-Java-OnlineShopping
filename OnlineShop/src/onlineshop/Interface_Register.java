@@ -311,7 +311,7 @@ public class Interface_Register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
         );
 
         pack();
@@ -354,11 +354,74 @@ public class Interface_Register extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_conpassActionPerformed
 
     private void bt_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_registerActionPerformed
-        // TODO add your handling code here:
+        String query = "INSERT INTO COSTUMER(FNAME, LNAME, EMAIL, BDATE, ADDRESS, PHONE, PASSWORD) VALUES(?,?,?,?,?,?,?)";
+        
+        String fName = txt_fName.getText();
+        String lName = txt_lName.getText();
+        String email = txt_email.getText();
+        String bdate = null;
+        String address = txta_address.getText();
+        String phoneNum = txt_phone.getText();
+        String pass = String.valueOf(jpass_pass.getPassword());
+        String conPass = String.valueOf(jpass_conpass.getPassword());
+            
+            
+        if(fName.equals("")){
+            JOptionPane.showMessageDialog(null, "Fill your first name");
+        }else if(lName.equals("")){
+            JOptionPane.showMessageDialog(null, "Fill your last name");
+        }else if(email.equals("")){
+            JOptionPane.showMessageDialog(null, "Fill your email");
+        }else if(checkEmailTaken(email)){
+            JOptionPane.showMessageDialog(null, "email: "+email+" has been taken. Please use another email");
+        }else if(phoneNum.equals("")){
+            JOptionPane.showMessageDialog(null, "Fill your phone number");
+        }else if(pass.equals("")){
+            JOptionPane.showMessageDialog(null, "Fill your password");
+        }else if(!conPass.equals(pass)){
+            JOptionPane.showMessageDialog(null, "Password didn't match");
+        }else{
+            if(dt_birth.getDate() == null){
+                JOptionPane.showMessageDialog(null, "Choose birth date");
+            }else{
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                bdate = dateFormat.format(dt_birth.getDate());
+                
+                try{            
+                conn = new ConnectionSQL().getConSQL();
+                PreparedStatement ps;
+                ps = conn.prepareStatement(query);
+            
+                ps.setString(1, fName);
+                ps.setString(2, lName);
+                ps.setString(3, email);
+                if(bdate != null){
+                    ps.setString(4, bdate);
+                }
+                ps.setString(5, address);
+                ps.setString(6, phoneNum);
+                ps.setString(7, pass);
+            
+                int i = ps.executeUpdate();
+                if(i != 0){
+                    JOptionPane.showMessageDialog(null, "New User Created");
+                    resetFill();
+                }
+                conn.close();
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                }
+            }
+        }
     }//GEN-LAST:event_bt_registerActionPerformed
 
     private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
-        // TODO add your handling code here:
+        Interface_LoginCustomer ilc = new Interface_LoginCustomer();
+        ilc.setVisible(true);
+        ilc.pack();
+        ilc.setLocationRelativeTo(null);
+        ilc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_bt_loginActionPerformed
 
     public boolean checkEmailTaken(String email){

@@ -117,7 +117,7 @@ public class ManageProduct extends JFrame implements ActionListener{
         btn_clear.setBounds(520, 200, 90, 24);
         this.getContentPane().add(btn_clear);
         btn_clear.addActionListener(this);
-	    
+	
         btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_logout.setText("Logout");
         btn_logout.setBounds(670, 20, 90, 24);

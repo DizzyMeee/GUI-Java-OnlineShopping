@@ -1,15 +1,21 @@
 package onlineshop;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.event.*;
-import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Olshop extends JFrame implements ActionListener, ItemListener{
-
+public class Olshop extends JFrame implements ActionListener{
     JLabel lbl_judul = new JLabel();
 	
     JLabel lbl_productName = new JLabel();
@@ -22,6 +28,9 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
 	
     JButton btn_buy = new JButton();
     JButton btn_refresh = new JButton();
+    JButton btn_logout = new JButton();
+    JButton btn_search = new JButton();
+    JButton btn_print = new JButton();
     
     JButton btn_filter = new JButton();
     JComboBox<String> cb_filter = new JComboBox<>();
@@ -41,8 +50,14 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
     JLabel lbl_quantity = new JLabel();
     JTextField txt_quantity = new JTextField();
     
-    String name;
+    String name, category;
     int prodQuantity, quantityNeeded;
+    double prodPrice, totalPrice;
+    double grandTotal = 0;
+    int i=0;
+    
+//    String path = "D:\\Sandi\\Download";
+    
 	public Olshop(){
 		
 	this.setTitle("Online Shop");
@@ -110,7 +125,6 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         cb_filter.setSelectedItem(null);
         cb_filter.setBounds(30, 230, 200, 24);
  	this.getContentPane().add(cb_filter);
- 	cb_filter.addItemListener(this);
  	
  	JPanel content = new JPanel();
  		
@@ -119,18 +133,19 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
  	JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
  	txt_field.setFont(new Font("Optima", Font.PLAIN,14));
  	txt_field.setText("");
+        txt_field.setEditable(false);
 
  	txt_field.setLineWrap(true);
  	txt_field.setWrapStyleWord(true);
 	
  	content.setLayout(new BorderLayout());
         content.add(Spane);
-        content.setBounds(410, 120, 280, 120);
+        content.setBounds(410, 120, 340, 120);
         
         this.getContentPane().add(content);
         
         lbl_price.setFont(new Font("georgia", Font.BOLD,14));
-        lbl_price.setText("Price: ");
+        lbl_price.setText("Total: ");
         lbl_price.setBounds(410, 250, 50, 22);
         this.getContentPane().add(lbl_price);
         
@@ -142,7 +157,7 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         txt_rp.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_rp.setText("");
         txt_rp.setEditable(false);
-        txt_rp.setBounds(530, 250, 160, 22);
+        txt_rp.setBounds(530, 250, 220, 22);
         this.getContentPane().add(txt_rp);
 		
         lbl_searchh.setFont(new Font("georgia", Font.BOLD,14));
@@ -150,16 +165,28 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         lbl_searchh.setBounds(30, 290, 300, 22);
         this.getContentPane().add(lbl_searchh);
 
-        txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
-        txt_search.setText("");
-        txt_search.setBounds(170, 290, 200, 22);
-        this.getContentPane().add(txt_search);
-		
-	btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
+        btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_logout.setText("Logout");
         btn_logout.setBounds(670, 20, 90, 24);
         this.getContentPane().add(btn_logout);
         btn_logout.addActionListener(this);
+        
+        txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
+        txt_search.setText("");
+        txt_search.setBounds(170, 290, 200, 22);
+        this.getContentPane().add(txt_search);
+        
+        btn_search.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
+        btn_search.setText("Search");
+        btn_search.setBounds(400, 290, 90, 24);
+        this.getContentPane().add(btn_search);
+        btn_search.addActionListener(this);
+        
+        btn_print.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
+        btn_print.setText("Print");
+        btn_print.setBounds(660, 290, 90, 24);
+        this.getContentPane().add(btn_print);
+        btn_print.addActionListener(this);
         
         String [] kolom = {"Product Name", "Category", "Stock", "Price"};
 
@@ -178,11 +205,33 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         show_data();
 	}
         
+        public void filter_data(String str1){
+        List data = new Product().filter_data(str1);
+        String[] str = (String[]) data.toArray(new String[0]);
+        
+        for(int i=0;i<str.length;i+=4){
+            String[] df = {str[i], str[i+1], str[i+2], str[i+3]};
+            defaultTableModel.addRow(df);
+        }
+    }        
+        
+        public void find_data(String str1){
+        List data = new Product().find_data(str1);
+        String[] str = (String[]) data.toArray(new String[0]);
+        
+        for(int i=0;i<str.length;i+=4){
+            String[] df = {str[i], str[i+1], str[i+2], str[i+3]};
+            defaultTableModel.addRow(df);
+        }
+    }
+        
         public void get_data(){
         int selectedRow = tb_olshop.getSelectedRow();
         
         name = tb_olshop.getValueAt(selectedRow,0).toString();
+        category = tb_olshop.getValueAt(selectedRow, 1).toString();
         prodQuantity = Integer.valueOf(tb_olshop.getValueAt(selectedRow, 2).toString());
+        prodPrice = Double.valueOf(tb_olshop.getValueAt(selectedRow, 3).toString());
         txt_productName.setText(name);
         txt_stock.setText(String.valueOf(prodQuantity));
     }
@@ -223,6 +272,7 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
 	public void reset(){
             txt_productName.setText("");
 	    txt_quantity.setText("");
+            txt_stock.setText("");
         }
         
 	public String cek_kosong() {
@@ -238,10 +288,6 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         }
         return hasil;
     }
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-            
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -253,9 +299,18 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
                     JOptionPane.showMessageDialog(null, "Not enough in stock");
                 }else{
                     String save = new Product().update_data(name, quantityNeeded);
+                    totalPrice = quantityNeeded*prodPrice;
+                    grandTotal += totalPrice;
                     JOptionPane.showMessageDialog(null,"Your purchase has been added.");
                     refresh();
                     reset();
+                    i++;
+                    if(i ==1){
+                        txt_field.setText(txt_field.getText() + "      ============GROSHOP============\n" + "Product Name   Category   Quantity   Total\n" + name + "       " + category + "             " + quantityNeeded + "       " + totalPrice + "\n");
+                    }else{
+                        txt_field.setText(txt_field.getText() + name + "       " + category + "             " + quantityNeeded + "       " + totalPrice + "\n");
+                    }
+                    txt_rp.setText(String.valueOf(grandTotal));
                 }
             } else {
                 JOptionPane.showMessageDialog(null, cek);
@@ -265,8 +320,52 @@ public class Olshop extends JFrame implements ActionListener, ItemListener{
         	txt_productName.setText("");
         	txt_quantity.setText("");
                 txt_stock.setText("");
-        }
-		
-	}
-	
+                cb_filter.setSelectedItem(null);
+                reset_table();
+                show_data();
+        }else if(e.getSource().equals(btn_logout)){
+                Interface_LoginCustomer ilc = new Interface_LoginCustomer();
+                JOptionPane.showMessageDialog(null, "Logging out...");
+                ilc.setVisible(true);
+                ilc.pack();
+                ilc.setLocationRelativeTo(null);
+                ilc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();            
+        }else if(e.getSource().equals(btn_search)){
+            if(!txt_search.getText().equals("")){
+                reset_table();
+                find_data(txt_search.getText().toString().trim());
+            }else{
+                JOptionPane.showMessageDialog(null, "Input product name");
+            }
+        }else if(e.getSource().equals(btn_filter)){
+            if(cb_filter.getSelectedIndex() == -1){
+                JOptionPane.showMessageDialog(null, "Please select category to filter");
+            }
+            try{
+                category = cb_filter.getSelectedItem().toString();
+                reset_table();
+                filter_data(category);   
+            }catch(Exception ex){
+                ex.getMessage();
+            }
+        }else if(e.getSource().equals(btn_print)){
+            txt_field.setText(txt_field.getText() + "\tGrand Total: "+grandTotal);
+            String inside = txt_field.getText();
+            
+            Document doc = new Document();
+            try{
+                PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("Invoice.pdf"));
+                doc.open();
+                doc.add(new Paragraph(inside));
+                doc.close();
+                writer.close();
+            }catch(DocumentException ex){
+                ex.printStackTrace();
+            }catch(FileNotFoundException ex){
+                ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null, "Invoice has been printed");
+	}	
+    }
 }

@@ -199,4 +199,28 @@ public class Product {
         }
         return result;
     }
+    
+    public List filter_data(String str){
+        List<String> assetList = new ArrayList<String>();
+        conn = new ConnectionSQL().getConSQL();
+        String query = "SELECT * FROM PRODUCT WHERE CATEGORY LIKE ? ORDER BY PROD_NAME ASC";
+        try{
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1,str + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                String name = rs.getString("PROD_NAME").trim();
+                String category = rs.getString("CATEGORY").trim();
+                String stock = rs.getString("STOCK").trim();
+                String price = rs.getString("PRICE").trim();
+                
+                String[] df = {name, category, stock, price};
+                Collections.addAll(assetList, df);
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return assetList;
+    }
 }
