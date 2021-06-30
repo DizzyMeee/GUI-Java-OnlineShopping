@@ -31,7 +31,8 @@ public class Olshop extends JFrame implements ActionListener{
     JButton btn_logout = new JButton();
     JButton btn_search = new JButton();
     JButton btn_print = new JButton();
-    
+    JLabel lbl_fName = new JLabel();
+
     JButton btn_filter = new JButton();
     JComboBox<String> cb_filter = new JComboBox<>();
 	
@@ -67,7 +68,7 @@ public class Olshop extends JFrame implements ActionListener{
         
         lbl_judul.setFont(new Font("Courier", Font.BOLD,18));
         lbl_judul.setText("˚✧₊⁎  Online Shop  ⁎⁺˳✧༚");
-        lbl_judul.setBounds(240, 30, 500, 22);
+        lbl_judul.setBounds(180, 30, 500, 22);
         // kiri, atas, lebar, tinggi
         this.getContentPane().add(lbl_judul);
 		
@@ -167,9 +168,14 @@ public class Olshop extends JFrame implements ActionListener{
 
         btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_logout.setText("Logout");
-        btn_logout.setBounds(670, 20, 90, 24);
+        btn_logout.setBounds(30, 20, 90, 24);
         this.getContentPane().add(btn_logout);
         btn_logout.addActionListener(this);
+        
+        lbl_fName.setFont(new Font("georgia", Font.BOLD,14));
+        lbl_fName.setText("Welcome, Belvin Shandy Aurora.");
+        lbl_fName.setBounds(490, 20, 300, 22);
+        this.getContentPane().add(lbl_fName);
         
         txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_search.setText("");
