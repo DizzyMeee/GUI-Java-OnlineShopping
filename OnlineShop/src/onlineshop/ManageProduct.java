@@ -13,13 +13,12 @@ public class ManageProduct extends JFrame implements ActionListener{
     String name, category, stock, price;
             
     JLabel lbl_judul = new JLabel();
+    JLabel lbl_admin = new JLabel();
    
     JTable tb_manage;
     DefaultTableModel defaultTableModel;
      
     JScrollPane spane;
-	
-    JLabel lbl_fName = new JLabel();
 	
     JLabel lbl_productName = new JLabel();
     JTextField txt_productName = new JTextField();
@@ -50,10 +49,15 @@ public class ManageProduct extends JFrame implements ActionListener{
         this.setTitle(" ✿ Manage Product ✿ ");
         
         lbl_judul.setFont(new Font("Courier", Font.BOLD,18));
-        lbl_judul.setText("˚✧₊⁎  Manage Product  ⁎⁺˳✧༚");
+        lbl_judul.setText("˚✧₊⁎  Manage Product  ⁎⁺˳✧₊");
         lbl_judul.setBounds(160, 30, 500, 22);
         // kiri, atas, lebar, tinggi
         this.getContentPane().add(lbl_judul);
+        
+        lbl_admin.setFont(new Font("georgia", Font.BOLD,14));
+        lbl_admin.setText("Welcome, Admin");
+        lbl_admin.setBounds(490, 20, 300, 22);
+        this.getContentPane().add(lbl_admin);
 	
         lbl_productName.setFont(new Font("georgia", Font.BOLD,14));
         lbl_productName.setText("Product Name : ");
@@ -125,11 +129,6 @@ public class ManageProduct extends JFrame implements ActionListener{
         btn_logout.setBounds(30, 20, 90, 24);
         this.getContentPane().add(btn_logout);
         btn_logout.addActionListener(this);
-        
-        lbl_fName.setFont(new Font("georgia", Font.BOLD,14));
-        lbl_fName.setText("Welcome, Belvin Shandy Aurora.");
-        lbl_fName.setBounds(490, 20, 300, 22);
-        this.getContentPane().add(lbl_fName);
 	
         lbl_search.setFont(new Font("georgia", Font.BOLD,14));
         lbl_search.setText("Search : ");

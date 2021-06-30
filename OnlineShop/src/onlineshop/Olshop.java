@@ -10,13 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import javax.swing.*;
 import javax.swing.table.*;
-import javax.swing.event.*;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Olshop extends JFrame implements ActionListener{
     JLabel lbl_judul = new JLabel();
+    JLabel lbl_user = new JLabel();
 	
     JLabel lbl_productName = new JLabel();
     JTextField txt_productName = new JTextField();
@@ -31,12 +29,11 @@ public class Olshop extends JFrame implements ActionListener{
     JButton btn_logout = new JButton();
     JButton btn_search = new JButton();
     JButton btn_print = new JButton();
-    JLabel lbl_fName = new JLabel();
-
+    
     JButton btn_filter = new JButton();
     JComboBox<String> cb_filter = new JComboBox<>();
 	
-    JLabel lbl_searchh = new JLabel();
+    JLabel lbl_search = new JLabel();
     JTextField txt_search = new JTextField();
 
     JLabel lbl_stock = new JLabel();
@@ -57,7 +54,6 @@ public class Olshop extends JFrame implements ActionListener{
     double grandTotal = 0;
     int i=0;
     
-//    String path = "D:\\Sandi\\Download";
     
 	public Olshop(){
 		
@@ -67,10 +63,15 @@ public class Olshop extends JFrame implements ActionListener{
         this.setTitle(" ✿ Online Shop ✿ ");
         
         lbl_judul.setFont(new Font("Courier", Font.BOLD,18));
-        lbl_judul.setText("˚✧₊⁎  Online Shop  ⁎⁺˳✧༚");
-        lbl_judul.setBounds(180, 30, 500, 22);
+        lbl_judul.setText("˚✧₊⁎  Online Shop  ⁎⁺˳✧₊");
+        lbl_judul.setBounds(180, 30, 250, 22);
         // kiri, atas, lebar, tinggi
         this.getContentPane().add(lbl_judul);
+        
+        lbl_user.setFont(new Font("georgia", Font.BOLD,14));
+        lbl_user.setText("");
+        lbl_user.setBounds(490, 20, 300, 22);
+        this.getContentPane().add(lbl_user);
 		
         lbl_productName.setFont(new Font("georgia", Font.BOLD,14));
         lbl_productName.setText("Product Name : ");
@@ -89,7 +90,7 @@ public class Olshop extends JFrame implements ActionListener{
         
         txt_quantity.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_quantity.setText("");
-        txt_quantity.setBounds(170, 120, 200, 28);
+        txt_quantity.setBounds(150, 120, 200, 28);
         this.getContentPane().add(txt_quantity);
         
         btn_buy.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
@@ -161,21 +162,16 @@ public class Olshop extends JFrame implements ActionListener{
         txt_rp.setBounds(500, 250, 220, 28);
         this.getContentPane().add(txt_rp);
 		
-        lbl_searchh.setFont(new Font("georgia", Font.BOLD,14));
-        lbl_searchh.setText("Search : ");
-        lbl_searchh.setBounds(30, 290, 300, 22);
-        this.getContentPane().add(lbl_searchh);
+        lbl_search.setFont(new Font("georgia", Font.BOLD,14));
+        lbl_search.setText("Search : ");
+        lbl_search.setBounds(30, 290, 300, 22);
+        this.getContentPane().add(lbl_search);
 
         btn_logout.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_logout.setText("Logout");
-        btn_logout.setBounds(30, 20, 90, 24);
+        btn_logout.setBounds(30, 50, 90, 24);
         this.getContentPane().add(btn_logout);
         btn_logout.addActionListener(this);
-        
-        lbl_fName.setFont(new Font("georgia", Font.BOLD,14));
-        lbl_fName.setText("Welcome, Belvin Shandy Aurora.");
-        lbl_fName.setBounds(490, 20, 300, 22);
-        this.getContentPane().add(lbl_fName);
         
         txt_search.setFont(new Font("georgia", Font.PLAIN, 14));
         txt_search.setText("");
@@ -210,6 +206,10 @@ public class Olshop extends JFrame implements ActionListener{
         
         show_data();
 	}
+        
+        public void login(String fName){
+            lbl_user.setText("Welcome, "+fName+".");
+        }
         
         public void filter_data(String str1){
         List data = new Product().filter_data(str1);
@@ -312,7 +312,7 @@ public class Olshop extends JFrame implements ActionListener{
                     reset();
                     i++;
                     if(i ==1){
-                        txt_field.setText(txt_field.getText() + "      ============GROSHOP============\n" + "Product Name   Category   Quantity   Total\n" + name + "       " + category + "             " + quantityNeeded + "       " + totalPrice + "\n");
+                        txt_field.setText(txt_field.getText() + "      ============INVOICE============\n" + "Product Name   Category   Quantity   Total\n" + name + "       " + category + "             " + quantityNeeded + "       " + totalPrice + "\n");
                     }else{
                         txt_field.setText(txt_field.getText() + name + "       " + category + "             " + quantityNeeded + "       " + totalPrice + "\n");
                     }
@@ -361,7 +361,7 @@ public class Olshop extends JFrame implements ActionListener{
             
             Document doc = new Document();
             try{
-                PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("Invoice.pdf"));
+                PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("Invoice_"+java.time.LocalDate.now()+".pdf"));
                 doc.open();
                 doc.add(new Paragraph(inside));
                 doc.close();
@@ -371,6 +371,8 @@ public class Olshop extends JFrame implements ActionListener{
             }catch(FileNotFoundException ex){
                 ex.printStackTrace();
             }
+            txt_field.setText("");
+            i=0;
             JOptionPane.showMessageDialog(null, "Invoice has been printed");
 	}	
     }

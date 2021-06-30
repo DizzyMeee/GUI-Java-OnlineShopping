@@ -44,11 +44,6 @@ public class Interface_LoginAdmin extends javax.swing.JFrame {
         txt_title2.setFont(new java.awt.Font("CaslonCP", 0, 36)); // NOI18N
         txt_title2.setText("Admin");
         txt_title2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_title2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_title2ActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_title2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
 
         txt_titleEmail.setEditable(false);
@@ -56,11 +51,6 @@ public class Interface_LoginAdmin extends javax.swing.JFrame {
         txt_titleEmail.setForeground(new java.awt.Color(51, 51, 51));
         txt_titleEmail.setText(" E M A I L");
         txt_titleEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txt_titleEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_titleEmailActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_titleEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 110, 40));
 
         txt_email.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -82,7 +72,7 @@ public class Interface_LoginAdmin extends javax.swing.JFrame {
                 bt_signInActionPerformed(evt);
             }
         });
-        jPanel1.add(bt_signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+        jPanel1.add(bt_signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
 
         bt_customer.setText("I am a customer");
         bt_customer.addActionListener(new java.awt.event.ActionListener() {
@@ -90,31 +80,18 @@ public class Interface_LoginAdmin extends javax.swing.JFrame {
                 bt_customerActionPerformed(evt);
             }
         });
-        jPanel1.add(bt_customer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
+        jPanel1.add(bt_customer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 120, -1));
 
         txt_title1.setEditable(false);
         txt_title1.setFont(new java.awt.Font("CaslonCP", 0, 36)); // NOI18N
         txt_title1.setText("WELCOME");
         txt_title1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_title1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_title1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_title2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_title2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_title2ActionPerformed
-
-    private void txt_titleEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_titleEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_titleEmailActionPerformed
 
     private void bt_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_signInActionPerformed
         String query = "SELECT * FROM ADMIN WHERE EMAIL_ADM =? AND PASS_ADM =?";
@@ -147,10 +124,6 @@ public class Interface_LoginAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }//GEN-LAST:event_bt_signInActionPerformed
-
-    private void txt_title1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_title1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_title1ActionPerformed
 
     private void bt_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_customerActionPerformed
        Interface_LoginCustomer ilc = new Interface_LoginCustomer();

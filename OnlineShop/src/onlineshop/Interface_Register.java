@@ -59,11 +59,6 @@ public class Interface_Register extends javax.swing.JFrame {
         txt_title.setFont(new java.awt.Font("Mshtakan", 0, 36)); // NOI18N
         txt_title.setText(" R E G I S T E R");
         txt_title.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_title.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_titleActionPerformed(evt);
-            }
-        });
 
         lbl_fName.setEditable(false);
         lbl_fName.setBackground(new java.awt.Color(188, 218, 221));
@@ -71,11 +66,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_fName.setForeground(new java.awt.Color(51, 51, 51));
         lbl_fName.setText("First Name");
         lbl_fName.setBorder(null);
-        lbl_fName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_fNameActionPerformed(evt);
-            }
-        });
 
         txt_fName.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -85,11 +75,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_lName.setForeground(new java.awt.Color(51, 51, 51));
         lbl_lName.setText("Last Name");
         lbl_lName.setBorder(null);
-        lbl_lName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_lNameActionPerformed(evt);
-            }
-        });
 
         txt_lName.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -99,11 +84,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_email.setForeground(new java.awt.Color(51, 51, 51));
         lbl_email.setText("Email");
         lbl_email.setBorder(null);
-        lbl_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_emailActionPerformed(evt);
-            }
-        });
 
         txt_email.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -113,11 +93,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_birth.setForeground(new java.awt.Color(51, 51, 51));
         lbl_birth.setText("Birth Date");
         lbl_birth.setBorder(null);
-        lbl_birth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_birthActionPerformed(evt);
-            }
-        });
 
         lbl_phone.setEditable(false);
         lbl_phone.setBackground(new java.awt.Color(188, 218, 221));
@@ -125,11 +100,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_phone.setForeground(new java.awt.Color(51, 51, 51));
         lbl_phone.setText("Phone Number");
         lbl_phone.setBorder(null);
-        lbl_phone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_phoneActionPerformed(evt);
-            }
-        });
 
         txt_phone.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -139,11 +109,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_address.setForeground(new java.awt.Color(51, 51, 51));
         lbl_address.setText("Address");
         lbl_address.setBorder(null);
-        lbl_address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_addressActionPerformed(evt);
-            }
-        });
 
         lbl_pass.setEditable(false);
         lbl_pass.setBackground(new java.awt.Color(188, 218, 221));
@@ -151,11 +116,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_pass.setForeground(new java.awt.Color(51, 51, 51));
         lbl_pass.setText("Password");
         lbl_pass.setBorder(null);
-        lbl_pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_passActionPerformed(evt);
-            }
-        });
 
         jpass_pass.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -165,11 +125,6 @@ public class Interface_Register extends javax.swing.JFrame {
         lbl_conpass.setForeground(new java.awt.Color(51, 51, 51));
         lbl_conpass.setText("Confirm Password");
         lbl_conpass.setBorder(null);
-        lbl_conpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_conpassActionPerformed(evt);
-            }
-        });
 
         jpass_conpass.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
@@ -317,44 +272,8 @@ public class Interface_Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_titleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_titleActionPerformed
-
-    private void lbl_fNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_fNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_fNameActionPerformed
-
-    private void lbl_lNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_lNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_lNameActionPerformed
-
-    private void lbl_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_emailActionPerformed
-
-    private void lbl_birthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_birthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_birthActionPerformed
-
-    private void lbl_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_phoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_phoneActionPerformed
-
-    private void lbl_addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_addressActionPerformed
-
-    private void lbl_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_passActionPerformed
-
-    private void lbl_conpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_conpassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_conpassActionPerformed
-
     private void bt_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_registerActionPerformed
-        String query = "INSERT INTO COSTUMER(FNAME, LNAME, EMAIL, BDATE, ADDRESS, PHONE, PASSWORD) VALUES(?,?,?,?,?,?,?)";
+        String query = "INSERT INTO CUSTOMER(FNAME, LNAME, EMAIL, BDATE, ADDRESS, PHONE, PASSWORD) VALUES(?,?,?,?,?,?,?)";
         
         String fName = txt_fName.getText();
         String lName = txt_lName.getText();

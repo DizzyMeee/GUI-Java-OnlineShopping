@@ -69,11 +69,6 @@ public class Interface_LoginCustomer extends JFrame{
         txt_titleEmail.setForeground(new java.awt.Color(51, 51, 51));
         txt_titleEmail.setText(" E M A I L");
         txt_titleEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txt_titleEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_titleEmailActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_titleEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 110, 40));
 
         txt_email.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -114,11 +109,6 @@ public class Interface_LoginCustomer extends JFrame{
         lbl_title.setText("WELCOME ");
         lbl_title.setToolTipText("");
         lbl_title.setBorder(null);
-        lbl_title.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_titleActionPerformed(evt);
-            }
-        });
         jPanel5.add(lbl_title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 290, 60));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 300, 120));
@@ -264,10 +254,6 @@ public class Interface_LoginCustomer extends JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbl_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_titleActionPerformed
-
-    }//GEN-LAST:event_lbl_titleActionPerformed
-
     private void bt_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_createActionPerformed
         Interface_Register ir = new Interface_Register();
         ir.setVisible(true);
@@ -278,10 +264,11 @@ public class Interface_LoginCustomer extends JFrame{
     }//GEN-LAST:event_bt_createActionPerformed
 
     private void bt_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_signInActionPerformed
-        String query = "SELECT * FROM COSTUMER WHERE EMAIL =? AND PASSWORD =?";
+        String query = "SELECT * FROM CUSTOMER WHERE EMAIL =? AND PASSWORD =?";
         
         String email = txt_email.getText();
         String pass = String.valueOf(jpass_pass.getPassword());
+        String fullName = "";
         try{
             conn = new ConnectionSQL().getConSQL();
             PreparedStatement ps;
@@ -291,10 +278,11 @@ public class Interface_LoginCustomer extends JFrame{
             ps.setString(1, email);
             ps.setString(2, pass);
             rs = ps.executeQuery();
-            
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "SUCCESS");
+                fullName = rs.getString("FNAME")+" "+rs.getString("LNAME");
                 Olshop ol = new Olshop();
+                ol.login(fullName);
                 ol.setVisible(true);
                 ol.setSize(780,650);
                 ol.setLocationRelativeTo(null);
@@ -307,10 +295,6 @@ public class Interface_LoginCustomer extends JFrame{
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }//GEN-LAST:event_bt_signInActionPerformed
-
-    private void txt_titleEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_titleEmailActionPerformed
-        
-    }//GEN-LAST:event_txt_titleEmailActionPerformed
 
     private void bt_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_adminActionPerformed
         Interface_LoginAdmin ila = new Interface_LoginAdmin();
