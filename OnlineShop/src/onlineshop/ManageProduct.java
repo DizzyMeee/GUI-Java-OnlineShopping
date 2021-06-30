@@ -50,8 +50,8 @@ public class ManageProduct extends JFrame implements ActionListener{
         this.setTitle(" ✿ Manage Product ✿ ");
         
         lbl_judul.setFont(new Font("Courier", Font.BOLD,18));
-        lbl_judul.setText("˚✧₊⁎  Online Shop  ⁎⁺˳✧༚");
-        lbl_judul.setBounds(180, 30, 500, 22);
+        lbl_judul.setText("˚✧₊⁎  Manage Product  ⁎⁺˳✧༚");
+        lbl_judul.setBounds(160, 30, 500, 22);
         // kiri, atas, lebar, tinggi
         this.getContentPane().add(lbl_judul);
 	
