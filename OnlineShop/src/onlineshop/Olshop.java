@@ -186,7 +186,7 @@ public class Olshop extends JFrame implements ActionListener{
         
         btn_print.setFont(new Font("Gill Sans MT", Font.PLAIN,14));
         btn_print.setText("Print");
-        btn_print.setBounds(660, 290, 90, 24);
+        btn_print.setBounds(630, 290, 90, 24);
         this.getContentPane().add(btn_print);
         btn_print.addActionListener(this);
         
