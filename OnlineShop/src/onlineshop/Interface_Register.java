@@ -297,6 +297,8 @@ public class Interface_Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Fill your phone number");
         }else if(pass.equals("")){
             JOptionPane.showMessageDialog(null, "Fill your password");
+        }else if(pass.length()<8){
+            JOptionPane.showMessageDialog(null, "Password is too short.");
         }else if(!conPass.equals(pass)){
             JOptionPane.showMessageDialog(null, "Password didn't match");
         }else{
