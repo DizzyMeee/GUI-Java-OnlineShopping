@@ -266,11 +266,13 @@ public class Interface_LoginCustomer extends JFrame{
              
              JOptionPane.showMessageDialog(null,"Sign in success.");
 
-       } else {
+      	 } else {
            txt_email.setText(null);
            JOptionPane.showMessageDialog(null,"Please enter your email correctly.");
 
-       }
+     	 }
+    }
+	    
 
     private void bt_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_createActionPerformed
         Interface_Register ir = new Interface_Register();
