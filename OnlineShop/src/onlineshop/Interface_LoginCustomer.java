@@ -253,6 +253,24 @@ public class Interface_LoginCustomer extends JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+	
+    private void btn_signinActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        Pattern pMail = Pattern.compile("^[a-zA-Z0-9._]+@[a-zA-Z0-9.]+\\.[a-zA-Z]{2,6}$");
+        Matcher mMail = pMail.matcher(txt_email.getText());
+        
+        boolean isEmailValid = mMail.matches();
+        
+        txt_email.setText(Boolean.toString(isEmailValid));
+        
+         if(isEmailValid) {
+             
+             JOptionPane.showMessageDialog(null,"Sign in success.");
+
+       } else {
+           txt_email.setText(null);
+           JOptionPane.showMessageDialog(null,"Please enter your email correctly.");
+
+       }
 
     private void bt_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_createActionPerformed
         Interface_Register ir = new Interface_Register();
