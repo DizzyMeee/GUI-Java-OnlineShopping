@@ -5,9 +5,10 @@ import java.sql.*;
 public class ConnectionSQL {
     java.sql.Connection conn;
     public java.sql.Connection getConSQL(){
+        // we use SQL Server Management Studio
         try{
             String url = "jdbc:sqlserver://localhost:1433;"
-                    + "databaseName=db_olshop;user=sa;password=shandy122002";
+                    + "databaseName=db_olshop;user=yourusername;password=yourpassword";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection(url);
         }
