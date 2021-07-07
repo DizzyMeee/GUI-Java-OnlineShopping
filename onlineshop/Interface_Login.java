@@ -165,6 +165,7 @@ public class Interface_Login extends javax.swing.JFrame {
 
         lbl_aboutUs.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
         lbl_aboutUs.setText("About Us");
+        lbl_aboutUs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_aboutUs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_aboutUsMouseClicked(evt);
@@ -255,6 +256,7 @@ public class Interface_Login extends javax.swing.JFrame {
                     mp.setSize(780, 650);
                     mp.setLocationRelativeTo(null);
                     mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    mp.setResizable(false);
                     this.dispose();
                 }
                 // if wrong captcha
@@ -283,6 +285,7 @@ public class Interface_Login extends javax.swing.JFrame {
                     ol.setSize(780, 650);
                     ol.setLocationRelativeTo(null);
                     ol.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    ol.setResizable(false);
                     this.dispose();
                 }
                 //if wrong captcha
