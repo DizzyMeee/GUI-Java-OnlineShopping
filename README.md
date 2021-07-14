@@ -1,4 +1,4 @@
-# Syarif Hidayatullah State Islamic University Jakarta Final Project For Advanced Programming Course
+# Final Project For Advanced Programming Course In Syarif Hidayatullah State Islamic University Jakarta 
 ***List Of Member***
 1. Cherrie Gracila Amanda (11200910000051)
 2. Belvin Shandy Aurora (11200910000052)
