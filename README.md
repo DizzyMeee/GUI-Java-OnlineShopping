@@ -42,7 +42,3 @@ After that, you can run the file and the first thing you see is a frame login th
 ## Manage Product Interface (When User Login As An Admin)
 ![manage product](https://user-images.githubusercontent.com/73571301/129359161-741f0a94-102f-4bdc-9576-3a4b61218d98.png)
 ###
-
-## About Us
-![about us interface](https://user-images.githubusercontent.com/73571301/129359218-b6f45513-46a9-414f-baac-615d7bebe6d2.png)
-###
